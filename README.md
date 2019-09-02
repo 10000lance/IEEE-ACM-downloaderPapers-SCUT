@@ -12,6 +12,8 @@ chrome浏览器、chromedriver
 
 [chromerdriver](https://chromedriver.chromium.org/downloads) 需与 chrome 的版本相对应
 
+chromedriver下载后配置path路径或直接放在 src/ 目录下
+
 ## 程序入口：
 
 Main.py

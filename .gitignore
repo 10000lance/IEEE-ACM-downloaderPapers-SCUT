@@ -4,3 +4,4 @@ src/downloader/*.txt
 src/__pycache__
 src/.idea
 src/downloader/__pycache__
+src/chromedriver.exe
