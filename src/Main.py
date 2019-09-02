@@ -39,7 +39,7 @@ def getPapers(folderPath, MyWebdriver, isDownload, minTime=20, maxTime=50):
 	print('{0}已处理论文数：{1}'.format(folderPath, paperCompleted))
 
 	# 下载完全则输出completed信息
-	if (paperCompleted == paperNum):
+	if (paperCompleted >= paperNum):
 		print('{0} has completed!!!'.format(folderPath))
 		return
 

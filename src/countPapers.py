@@ -59,6 +59,7 @@ if __name__ == '__main__':
             paperDownloadNum = countDownloadNum(folderPath)
             paperDownloadNumInConf  += paperDownloadNum
             paperDownloadNumInTotal += paperDownloadNum
-            # print('{0} has downloaded {1}/{2} papers'.format(folderPath, paperDownloadNum, paperNum))
+            print('{0} has downloaded {1}/{2} papers'.format(folderPath, paperDownloadNum, paperNum))
         print('{0} has downloaded {1}/{2} papers'.format(conference, paperDownloadNumInConf, paperNumInConf))
+        print()
     print('{0}/{1} papers has been downloaded totally'.format(paperDownloadNumInTotal, paperNumInTotal))

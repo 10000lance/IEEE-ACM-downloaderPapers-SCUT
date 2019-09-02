@@ -37,25 +37,25 @@ conferences = [
     'journals/tc',
 
     #IEEE Transactions on Parallel and Distributed Systems
-    'journals/tpds',
+    # 'journals/tpds',
 
     #IEEE Transactions On Computer-Aided Design Of Integrated Circuits And System
-    'journals/tcad',
+    # 'journals/tcad',
 
     #ACM Transactions on Architecture and Code Optimization
-    'journals/taco',
+    # 'journals/taco',
 
     #ACM Transactions on Embedded Computing Systems
-    'journals/tecs',
+    # 'journals/tecs',
 
     #ACM Transactions on Design Automation of Electronic Systems
-    'journals/todaes',
+    # 'journals/todaes',
 
     #IEEE Transactions on Very Large Scale Integration (VLSI) Systems
-    'journals/tvlsi',
+    # 'journals/tvlsi',
 
     #IEEE Micro
-    'journals/micro',
+    # 'journals/micro',
 ]
 
 publishers = [
