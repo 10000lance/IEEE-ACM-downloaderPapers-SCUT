@@ -1,0 +1,6 @@
+/papers
+src/*.txt
+src/downloader/*.txt
+src/__pycache__
+src/.idea
+src/downloader/__pycache__
