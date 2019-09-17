@@ -2,11 +2,15 @@
 /NOC_OCN
 /venv
 /downloadPapers
+/.idea
+/.accelerate
 *.rar
 *.zip
 src/*.txt
+src/*.html
 src/downloader/*.txt
 src/__pycache__
 src/.idea
 src/downloader/__pycache__
 src/chromedriver.exe
+src/chromedriver*
