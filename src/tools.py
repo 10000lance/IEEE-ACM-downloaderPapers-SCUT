@@ -65,6 +65,13 @@ def write(file, path, mode='w', times=2, logPath='', warningPath=''):
 
 	mode += '+'
 
+	#检测path上级文件夹是否存在，若不存在则递归创建
+	#将相对路径转换成绝对路径，windows下将路径分隔符都转换成‘\\'
+	# FIXME windows下路径分隔符为'\\'(也可用'/'),linux下为'/'
+	folderPath = os.path.abspath(path).replace('\\', '/').rpartition('/')[0]
+	if not os.path.exists(folderPath):
+		os.makedirs(folderPath)
+
 	if times <= 0:
 		times = 2
 	while times > 0:
@@ -118,7 +125,7 @@ def getChrome():
 	chrome = webdriver.Chrome(chrome_options=chrome_options)
 
 	#有头浏览器
-	# chrome = webdriver.Chrome()
+	chrome = webdriver.Chrome()
 	return chrome
 
 def requestsGet(url, headers, params=None, times=3, logPath='', warningPath=''):
@@ -205,7 +212,7 @@ def requestsPost(url, headers, data=None, json=None, times=3, logPath='', warnin
 			if response.status_code != 200:
 				if times > 0:
 					waitingTime = random.randint(60, 100)
-					warningInfo = 'Failed to get the page from {0}\n        Failed info: {1} {2}\n        waiting {3}s to get again'.format(pageURL, 'Http request error', response.status_code, waitingTime)
+					warningInfo = 'Failed to get the page from {0}\n        Failed info: {1} {2}\n        waiting {3}s to get again'.format(url, 'Http request error', response.status_code, waitingTime)
 				else:
 					waitingTime = 0
 					warningInfo = 'Failed to get the page from {0}\n        Failed info: {1} {2}'.format(url, 'Http request error', response.status_code)
@@ -291,6 +298,7 @@ def getFolders(basePath, conference):
 	# print(len(foldersPath))
 	return foldersPath
 
+#TODO 文件名不能超过255个字符
 def toFilename(title, isPdf=True):
 	"""去掉title中的特殊字符，并添加.pdf文件后缀名
 
@@ -360,6 +368,10 @@ def updateInfo(info, infos, logPath='', warningPath=''):
 	info.append(citedInPapersTag)
 
 if __name__ == '__main__':
+	headers = {
+		'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36',
+	}
+
 	def test_requestsGet():
 		#success test
 		# url = 'http://dblp.org/db/conf/date'
@@ -408,10 +420,6 @@ if __name__ == '__main__':
 				print('Failed')
 			else:
 				print(myWebdriver.current_url())
-
-	headers = {
-		'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36',
-	}
 
 	# test_requestsGet()
 	# test_requestsPost()

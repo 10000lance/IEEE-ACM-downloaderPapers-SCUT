@@ -1,4 +1,9 @@
 /papers
+/NOC_OCN
+/venv
+/downloadPapers
+*.rar
+*.zip
 src/*.txt
 src/downloader/*.txt
 src/__pycache__

@@ -121,10 +121,14 @@ def getPaperInfo(MyWebdriver, logPath='', warningPath=''):
 #在ACM中查找论文，返回论文所在页面地址
 def search(title, logPath='', warningPath=''):
 	def compareTitle(title, resultTitle):
-		title = title.replace(' ', '').replace('-', '').replace(',', '').replace(':', '').lower()
-		resultTitle = resultTitle.replace(' ', '').replace('-', '').replace(',', '').replace(':', '').lower()
-		# print(title)
-		# print(resultTitle)
+		title, resultTitle = [ x.replace(' ', '')\
+		                        .replace('-', '')\
+		                        .replace(',', '')\
+		                        .replace(':', '')\
+		                        .replace('.', '')\
+		                        .lower()
+		                       for x in [title, resultTitle]
+		                    ]
 		return resultTitle.find(title) == 0
 
 	title = title.strip('.')
@@ -186,5 +190,5 @@ if __name__ == '__main__':
 		newURL = search(title, logPath='TestLog.txt', warningPath='TestWarning.txt')
 		print(newURL)
 
-	test_getPaperInfo()
-	# test_search()
+	# test_getPaperInfo()
+	test_search()

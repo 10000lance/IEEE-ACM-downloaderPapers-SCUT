@@ -6,6 +6,7 @@ import os
 from lxml import etree
 import time
 import tools
+import projectInfo
 from . import ACM, IEEE, Schloss, Springer
 
 def downloadPDF(pdfURL, pdfPath, logPath='', warningPath=''):
@@ -172,7 +173,7 @@ def getPublishers(conferences):
     CEUR = []
     num = 0
     for conference in conferences:
-        foldersPath = tools.getFolders(conference)
+        foldersPath = tools.getFolders(projectInfo.folderPath, conference)
         for folderPath in foldersPath:
             num += 1
             infoPath = os.path.join(folderPath, 'paperInfo.xml')
